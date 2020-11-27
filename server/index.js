@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import signupRoute from './routes/signup';
+import contacts from './routes/contacts';
 const app=express();
 const port=process.env.port||3000;
 dotenv.config();
@@ -14,6 +15,7 @@ mongoose
 
      app.use(express.json());
      app.use("/api/v1/user", signupRoute);
+     app.use("/api/v1/contacts", contacts);
 app.get('/home');
 app.listen(port, () => {
     console.log(`localhost:${port}`);
