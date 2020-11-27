@@ -1,0 +1,18 @@
+#foot{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background: #0C0C0D;
+}
+
+.social-media{
+    text-align: center;
+    background: #0C0C0D;
+}
+
+
+footer {
+    clear: both;
+    color: #ffff;
+    text-align: center;
+}
