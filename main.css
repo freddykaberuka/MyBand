@@ -99,6 +99,15 @@ h3{
     text-align: center;
     color:white;
 }
+#About{
+    padding-left: 10px;
+    padding-right:10px;
+}
+.login-container{
+    text-align: center;
+    min-height: 67vh; 
+    
+}
 #services,#blog,#portofolio{
     text-align: center;
     min-height: 80vh;
@@ -136,14 +145,7 @@ h3{
 #contact{
     margin-left: 6%;
 }
-
 .input-type,.message,.input-log{
-    width: 50%;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin-bottom: 2%;
-}
-.input-type,.message{
     width: 50%;
     padding: 12px 20px;
     border-radius: 8px;
@@ -168,16 +170,17 @@ footer {
 }
 
 @media (max-width:940px){
+    .rounded-photo{
+        border-radius: 100%;
+        width:70%;
+    }
+    
     label.heading{
         font-size:30px;
         padding-left:50px;
     }
     nav ul li a{
         font-size:16px;
-    }
-    .rounded-photo{
-        border-radius: 100%;
-        width:70%;
     }
     .services-container,.blog-content{
         margin-left:20px;
@@ -187,6 +190,18 @@ footer {
         margin-bottom:16px;
         margin-top:26px;
         
+    }
+    .login-container{
+        text-align: center;
+        min-height: 38vh; 
+        
+    }
+    .input-log{
+        width: 90%;
+        height:50px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 2%;
     }
     .service-content,.service-header{
         font-size: 30px;
@@ -198,6 +213,12 @@ footer {
         margin-bottom: 2%;
     }
     #footer{
+        position:relative;
+        bottom:0;
+        width:100%;
+        background: #0C0C0D;
+    }
+    #foot{
         position:relative;
         bottom:0;
         width:100%;
@@ -236,7 +257,6 @@ footer {
 
 
 @media (max-width:858px){
-    
     .checkbtn{
         display:block;
     }
