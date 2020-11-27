@@ -2,12 +2,13 @@ import express from 'express';
 const router = express.Router();
 import Contact from '../model/contact';
 import getContact from '../middleware/getContact';
+import checkAuth from '../middleware/check_Auth.js';
 import contactController from '../controller/contactController';
 require('dotenv').config()
 
 
 
-router.get('/', contactController.findAll);
+router.get('/',checkAuth, contactController.findAll);
 router.post('/', async(req, res) => {
     const contact = new Contact({
         name: req.body.name,
@@ -33,8 +34,8 @@ router.post('/', async(req, res) => {
 });
 
 
-router.get("/:contactid", getContact, contactController.findOne);
-router.delete("/:contactid", getContact, contactController.delete);
+router.get("/:contactid",checkAuth, getContact, contactController.findOne);
+router.delete("/:contactid",checkAuth, getContact, contactController.delete);
 
 
 
