@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel='stylesheet' type='text/css' href='../css/admin.css'>
+        <link rel='stylesheet' type='text/css' href='../css/footer.css'>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Freddy | Services</title>
+        
+      </head>
+    
+      <body>
+    
+                  <nav>
+                      <input type="checkbox" id="check">
+                      <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+            
+                      </label>
+                      <label class='heading'>FREDDY KABERUKA</label>
+                      
+                      <ul>
+                          <li><a href="home.html"><i class="fa fa-fw fa-home"></i> Home </a></li>
+                          <li><a href="service.html" class="active"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li>
+                          <li><a href="addArticle.html"><i class="fas fa-blog"></i>Blog</a></li>
+                          <li><a href="portofolio.html"><i class="fas fa-briefcase"></i>Portofolio</a></li>
+                          <li><a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Message</a></li>
+                          <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> logout</a></li>
+                      </ul>
+                     
+                  </nav>
+            
+            
+            
+              <div class="main">
+<section id="article">
+    <div class="container">
+        <div class='view'><a href="viewservice.html"><div style='text-decoration:none'><i class="fa fa-database" aria-hidden="true"></i>view Services</div></a></div>
+       <h2 style="color:white">Add New Service</h2>
+            <form id='serviceForm' onsubmit="return false;">
+              
+        <div><input type="text" name="title" class="input-type" placeholder="Your Title" required></div>
+        <div><input type="file" id="img-header"/></div>
+        <img src=""  id="view-image" />
+        <div><textarea class="message" name="bodie" placeholder="Add Content" style="height:170px" required></textarea></div>
+        <div><textarea class="message" name="conclusion" placeholder="Conclusion" style="height:170px" required></textarea></div>
+        <div><input type="submit" class="button" onclick="return savearticle();" value="Publish">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" onclick="return updateservice();" value="update">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" onclick="return cancel();" value="cancel"></div>
+    </form>
+    </div>
+    </section>
+</main>
+
+<div id='foot'style='background-color:black;'>
+   
+    <footer>
+        <p>copyright&copy;KABERUKA 2020</p>
+    </footer>
+</div>
+      </body>
+      </html>
