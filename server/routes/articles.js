@@ -4,12 +4,13 @@ import Article from '../model/article';
 import Comment from '../model/comment';
 import getArticle from '../middleware/getArticles';
 import getComment from '../middleware/getComments';
+import checkAuth from '../middleware/check_Auth.js';
 import articleController from '../controller/articleController';
 import commentController from '../controller/commentController';
 
 router.get('/', articleController.findAll);
 router.get('/comments', commentController.findAll);
-router.post('/', async(req, res) => {
+router.post('/',checkAuth, async(req, res) => {
     const article = new Article({
         title: req.body.title,
         bodie: req.body.bodie,
@@ -32,7 +33,7 @@ router.post('/', async(req, res) => {
     }
 });
 
-router.post('/comments', async(req, res) => {
+router.post('/comments', checkAuth, async(req, res) => {
     const comment = new Comment({
         email: req.body.email,
         commenty: req.body.commenty,
@@ -55,9 +56,9 @@ router.post('/comments', async(req, res) => {
 });
 
 router.get("/:articleid", getArticle, articleController.findOne);
-router.delete("/:articleid", getArticle, articleController.delete);
-router.delete("/comments/:commentid", getComment, commentController.delete);
-router.patch('/:articleid', getArticle,   async(req, res) => {
+router.delete("/:articleid", checkAuth,getArticle, articleController.delete);
+router.delete("/comments/:commentid",checkAuth, getComment, commentController.delete);
+router.patch('/:articleid', getArticle,checkAuth,   async(req, res) => {
     const { title, bodie, conclusion } = req.body;
     if (title != null) {
         res.art.title = title;
