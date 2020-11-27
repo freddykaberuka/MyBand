@@ -197,6 +197,18 @@ footer {
         border-radius: 8px;
         margin-bottom: 2%;
     }
+    .login-container{
+        text-align: center;
+        min-height: 38vh; 
+        
+    }
+    .input-log{
+        width: 90%;
+        height:50px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 2%;
+    }
     #footer{
         position:relative;
         bottom:0;
