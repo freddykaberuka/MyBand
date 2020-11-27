@@ -76,6 +76,9 @@ figure {
     text-align: center;
     padding-top: 10px;
 }
+.rounded-photo{
+    border-radius: 50%;
+}
 /*buttons*/
             
 .button {
@@ -164,6 +167,10 @@ footer {
     }
     nav ul li a{
         font-size:16px;
+    }
+    .rounded-photo{
+        border-radius: 100%;
+        width:70%;
     }
     .services-container,.blog-content{
         margin-left:20px;
