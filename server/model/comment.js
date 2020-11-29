@@ -3,6 +3,7 @@ import mongoose, { Schema } from 'mongoose';
 const commentsSchema = new Schema({
     email: {
         type: String,
+        match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/,
         required: true
     },
     commenty: {
