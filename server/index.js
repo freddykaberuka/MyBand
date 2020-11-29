@@ -22,3 +22,5 @@ app.get('/home');
 app.listen(port, () => {
     console.log(`localhost:${port}`);
 });
+
+export default app;
