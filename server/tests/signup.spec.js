@@ -58,3 +58,40 @@ describe('TEST signup API',()=>{
           });
       });
 });
+describe('TEST Signin API',()=>{
+    //should allow to login to the user
+    it("should signin user", (done) => {
+      const login = {
+          email: "fredy@gmail.com",
+        password: "11111111",
+      };
+      chai
+        .request(app)
+        .post('/api/v1/user/login')
+        .send(login)
+        .end((err, res) => {
+          if (err) done(err);
+              res.should.have.status(200);
+              res.should.have.a('object');
+              done();
+        });
+    });
+        //should not login
+        it("should not signin user", (done) => {
+            const login = {
+                email: "fre@gmail.com",
+              password: "11111111",
+            };
+            chai
+              .request(app)
+              .post('/api/v1/user/login')
+              .send(login)
+              .end((err, res) => {
+                if (err) done(err);
+                    res.should.have.status(401);
+                    res.should.have.a('object');
+                    done();
+              });
+          });
+          
+})
