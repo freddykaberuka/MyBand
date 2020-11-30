@@ -4,7 +4,9 @@
   "description": "Capstone project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server/index.js",
+    "start": "node ./build/server/index.js ",
+    "build": "rm -rf ./build/ && babel ./server/ -d ./build/server/ && cp -r ./server/model/ ./build/model/  && babel ./server/index.js -d ./build/",
+    "dev": "nodemon --exec babel-node server/index.js",
     "test": "mocha --require @babel/register server/tests/*.spec.js --timeout 60000 --exit || true",
     "coverage": "nyc --reporter=html npm run test"
   },
@@ -19,6 +21,12 @@
   },
   "homepage": "https://github.com/freddykaberuka/MyBand#readme",
   "dependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/register": "^7.12.1",
     "bcrypt": "^5.0.0",
     "brcypt": "^1.0.1",
     "chai": "^4.2.0",
@@ -27,11 +35,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.2.1",
     "mongoose": "^5.10.16",
     "multer": "^1.4.2",
     "nodemon": "^2.0.6",
-    "swagger-jsdoc": "^6.0.0-rc.5",
-    "swagger-ui-express": "^4.1.5"
+    "swagger-jsdoc": "^6.0.0",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

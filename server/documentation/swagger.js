@@ -1,14 +1,19 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 let config ={
   swagger:'2.0',
   info:{
       description:'myBrand',
       version:"1.0.0",
-      title:'myBrand'
+      title:'myBrand',
+      contact:{
+        email:"freddykaberuka2009@gmail.com"
+      },
   },
-  host:'localhost:3000',
+  host: process.env.URL,
   basePath:'/',
   schemes:[
-      'http',
       'https',
   ],
   paths:{
@@ -427,8 +432,8 @@ responses:{
               },
               {
                 in: "formData",
-                name: "commenty",
-                description: "commenty",
+                name: "comment",
+                description: "comment",
                 type: "string"
                 },
                 
