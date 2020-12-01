@@ -1,0 +1,328 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(#141e30, #243b55);
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+/*heading*/
+
+.topnav {
+    overflow: hidden;
+    background-color: #1b1b1b;
+    padding-top: 2px;
+}
+
+.topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: black;
+    color: #ffff;
+}
+
+.topnav a.active {
+    background-color: #ca2626;
+    color: white;
+}
+
+header {
+    background: #1b1b1b;
+    height: 8%;
+    color: #ffff;
+    position: fixed;
+    width: 100%;
+}
+
+header h1 {
+    margin-top: 4px;
+    padding-left: 20px;
+    float: left;
+}
+/*header a {
+color: #ffff;
+text-decoration: none;
+font-size: 18px;
+padding-bottom: 0;
+padding-left: 10px;
+}
+
+header ul {
+margin: 10;
+background: #1b1b1b;
+}
+
+header li {
+display: inline;
+padding: 0 10px 0 20px;
+}
+
+header nav {
+float: right;
+}*/
+/*main*/
+
+section {
+    float: center;
+    padding-top: 80px;
+}
+/*profile photo*/
+
+figure {
+    margin: 0;
+    text-align: center;
+    padding-top: 10px;
+}
+/*article on page 1*/
+
+article {
+    text-align: center;
+}
+
+#present {
+    font-size: 30px;
+    color: #ffff;
+}
+/*buttons*/
+
+.button {
+    background: #026aa7;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+}
+/*second scroll page*/
+
+#help {
+    color: orange;
+    padding-left: 40px;
+}
+
+#p1 {
+    padding-left: 40px;
+    color: #ffff;
+}
+
+#service ul {
+    list-style: none;
+    font-size: larger;
+    color: white;
+    padding-top: 15px;
+    word-break: break-all;
+}
+
+#service ul li:before {
+    content: '✓';
+    color: rgb(212, 16, 16);
+}
+
+.flip {
+    display: grid;
+    grid-template-columns: 45% auto;
+}
+
+.images {
+    margin: 0;
+}
+
+h2 {
+    color: #ffff;
+}
+/*article scroll page*/
+
+.articles {
+    color: #ffff;
+    padding-left: 40px;
+    text-align: left;
+}
+
+#laravel {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #96d1f3;
+    font-size: xx-large;
+}
+
+#p2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+section a {
+    color: rgb(241, 218, 10);
+    text-decoration: none;
+}
+
+#readmore {
+    color: #ffff;
+    padding-left: 40px;
+}
+/*contact form*/
+
+.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    background: rgba(0, 0, 0, .5);
+    float: center;
+}
+
+.contain {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25%;
+    padding: 1em;
+    background: rgba(0, 0, 0, .5);
+}
+
+section #contactform {
+    padding-top: 10;
+    padding-left: 40px;
+    margin-right: 120px;
+    border-radius: 4px;
+    padding-bottom: 4px;
+}
+/*INPUT TEXT88*/
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+#message {
+    width: 100%;
+}
+
+.col-25 {
+    width: 15%;
+    margin-top: 15px;
+    font-size: medium;
+    color: #ffff;
+}
+
+#links {
+    display: block;
+}
+/*SUBSCRIBE PART*/
+
+#subscribe {
+    padding: 70px;
+    color: white;
+    background: #1b1b1b;
+}
+
+#subscribe h1 {
+    float: left;
+}
+
+#subscribe form {
+    float: right;
+    margin-top: 15px;
+}
+
+#subscribe input[type='email'] {
+    height: 35px;
+    width: 400px;
+    padding: 4px;
+}
+/*1 BY 1 ARTICCLE*/
+
+#singlearticle {
+    text-align: left;
+    font-style: normal;
+    font-size: x-large;
+}
+/*ARTICLE IMAGE*/
+
+#artfoto {
+    padding-left: 20px;
+}
+
+.button {
+    background: #026aa7;
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+/*social medium CONNECT WITH ME PART*/
+
+.socialmedia {
+    margin-top: 20px;
+}
+
+.socialcontent h3 {
+    color: #ffff;
+}
+
+#socialcontent .box {
+    display: block;
+}
+/*ALERT FOR INSERTION*/
+
+.alert {
+    text-align: center;
+    background: green;
+    color: white;
+    display: none;
+    padding: 10px;
+}
+/*all messages display*/
+
+#message-list {
+    text-align: left;
+    font-style: normal;
+    font-size: x-large;
+    display: inline-flexbox;
+    box-shadow: 16px 8px 16px 16px black;
+}
+/*li div {
+    background: rgb(7, 67, 196);
+    width: 100px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+}*/
+
+.messageform {
+    height: auto;
+    margin-bottom: 100%;
+}
+/*footer*/
+
+footer {
+    clear: both;
+    color: #ffff;
+    height: 20px;
+    background: #0C0C0D;
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    .topnav a {
+        float: none;
+        display: block;
+    }
+}
