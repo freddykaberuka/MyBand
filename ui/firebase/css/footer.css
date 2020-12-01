@@ -1,0 +1,27 @@
+#foot{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background: #0C0C0D;
+}
+
+.social-media{
+    text-align: center;
+    background: #0C0C0D;
+}
+
+
+footer {
+    bottom:0;
+    clear: both;
+    color: #ffff;
+    text-align: center;
+}
+@media (max-width:940px){
+    #foot{
+        position:relative;
+        bottom:0;
+        width:100%;
+        background: #0C0C0D;
+    }
+}
