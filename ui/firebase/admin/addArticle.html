@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!--firebase script-->
+     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel='stylesheet' type='text/css' href='../../css/admin.css'>
+     <link rel='stylesheet' type='text/css' href='../css/footer.css'>
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <title>Freddy | Add Blog</title>
+</head>
+            
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+            
+        </label>
+        <label class='heading'>FREDDY KABERUKA</label>
+                      
+        <ul>
+            <li><a href="home.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="service.html"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li> 
+            <li><a href="addArticle.html"class="active"><i class="fas fa-blog"></i>Blog</a></li>
+            <li><a href="portofolio.html"><i class="fas fa-briefcase"></i>Portofolio</a></li>
+            <li><a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Message</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> logout</a></li>
+        </ul>
+                     
+    </nav>
+            
+            
+    <main>
+         <div class="main">
+<section id="article">
+    <div class="container">
+        <div class='view'><a href="viewarticle.html"><div style='text-decoration:none'><i class="fa fa-database" aria-hidden="true"></i>view Article</div></a></div>
+       <h2 style="color:white">Add New Article</h2>
+            <form id='articleForm' onsubmit="return false;">
+                
+        <div><input type="text" name="title" class="input-type" placeholder="Your Title" required></div>
+        <div><input type="file" id="img-header"/></div>
+        <img src=""  id="view-image" />
+        <div><textarea class="message" name="bodie" placeholder="Add Content" style="height:170px" required></textarea></div>
+        <div><textarea class="message" name="conclusion" placeholder="Conclusion" style="height:170px" required></textarea></div>
+        <div><input type="submit" class="button" onclick="return savearticle();" value="Publish">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" onclick="return updatearticle();" value="update">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" onclick="return cancelarticle();" value="cancel"></div>
+    </form>
+    </div>
+    </section>
+</main>
+<div id='foot'style='background-color:black;bottom:0;'>
+   
+        <footer>
+            <p>copyright&copy;KABERUKA 2020</p>
+        </footer>
+    </div>
+          </body>
+          <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+              apiKey: "AIzaSyAWOqIIq8EyXgPUKuTpuchYAb9vOiYe_PM",
+              authDomain: "personal-web-3a06e.firebaseapp.com",
+              databaseURL: "https://personal-web-3a06e.firebaseio.com",
+              projectId: "personal-web-3a06e",
+              storageBucket: "personal-web-3a06e.appspot.com",
+              messagingSenderId: "874381349679",
+              appId: "1:874381349679:web:5fdd7f95d87526bcaa87da",
+              measurementId: "G-7CGQY88TGJ"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const db=firebase.firestore();
+            // const auth=firebase.auth();
+            //db.settings({timestampsInSnapshots: true});
+          </script>
+          <script type="text/javascript" src="../js/article.js"></script>
+          </html>
+
+
+
+
