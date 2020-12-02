@@ -7,15 +7,13 @@ function queries(doc) {
 	li.style.width= '40%';
 	li.style.padding='6px';
     var update = document.createElement('span');
-    update.id='button',
-    update.className='button',
+    update.className='upd_button',
 	update.style.float='right';
     update.style.top = '0';
     update.style.right = '0';
 
     var trash = document.createElement('span');
-    trash.id='button',
-    trash.className='button',
+    trash.className='del_button',
     trash.style.top = '0';
     trash.style.right = '0';
 	trash.style.float='left';
@@ -49,7 +47,12 @@ function queries(doc) {
 	li.appendChild(update)
     messageList.appendChild(li);
 
-
+ // deleting data
+ trash.addEventListener('click', (e) => {
+    e.stopPropagation();
+    var id = e.target.parentElement.getAttribute('data-id');
+    db.collection('articles').doc(id).delete();
+});
 }
 // getting data
 db.collection('articles').get().then(snapshot => {
