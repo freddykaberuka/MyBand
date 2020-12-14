@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node server/index.js",
     "test": "mocha --require @babel/register server/tests/*.spec.js --timeout 60000 --exit || true",
-    "coverage":"nyc --reporter=html npm run test"
+    "coverage": "nyc --reporter=html npm run test"
   },
   "repository": {
     "type": "git",
@@ -27,16 +27,18 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.16",
+    "multer": "^1.4.2",
     "nodemon": "^2.0.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.8",
-    "@babel/core": "^7.12.9",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.6",
     "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-env": "^7.12.10",
     "@babel/register": "^7.12.1",
     "mocha": "^8.2.1",
     "nyc": "^15.1.0"
-  }
+  },
+  "keywords": []
 }

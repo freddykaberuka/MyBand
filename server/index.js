@@ -18,6 +18,11 @@ mongoose
      app.use("/api/v1/user", signupRoute);
      app.use("/api/v1/contacts", contacts);
      app.use("/api/v1/articles", articles);
+     app.use("/uploads",express.static("uploads"));
+     
+     app.use('/*', (_req, res) => {
+        res.status(404).send({error: 'Not Found' });
+      });
 app.get('/home');
 app.listen(port, () => {
     console.log(`localhost:${port}`);
