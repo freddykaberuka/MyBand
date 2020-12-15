@@ -149,10 +149,15 @@
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,12 +165,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -241,106 +246,110 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import express from 'express';
-const router = express.Router();
-import Signup from '../model/Signup';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+import express from 'express';
 import jwt from 'jsonwebtoken';
+import Signup from '../model/Signup';
+&nbsp;
+const router = express.Router();
 const bcrypt = require("bcrypt");
 &nbsp;
 &nbsp;
 router.post('/signup', (req, res, next) =&gt; {
 &nbsp;
 &nbsp;
-    //verifie if email exist
+    // verifie if email exist
     Signup.find({
-            email: req.body.email
+            email: req.body.email,
         })
-        .then(user =&gt; {
+        .then((user) =&gt; {
             <span class="missing-if-branch" title="else path not taken" >E</span>if (user.length &gt;= 1) {
                 return res.status(409).json({
-                    message: "this email alread exist"
+                    message: "this email alread exist",
                 });
             }
-            //hashing password before the plain text reach to a server
-            else {
+            // hashing password before the plain text reach to a server
+            
 <span class="cstat-no" title="statement not covered" >                bcrypt.</span>hash(req.body.password, 3, <span class="fstat-no" title="function not covered" >(e</span>rr, hash) =&gt; {
 <span class="cstat-no" title="statement not covered" >                    if (err) {</span>
 <span class="cstat-no" title="statement not covered" >                        return r</span>es.status(500).json({
-                            error: err
+                            error: err,
                         });
-                        //inserting new user
-                    } else {
+                        // inserting new user
+                    } 
                         const user = <span class="cstat-no" title="statement not covered" >new S</span>ignup({
                             email: req.body.email,
-                            password: hash
+                            password: hash,
                         });
 <span class="cstat-no" title="statement not covered" >                        user</span>
                             .save()
-                            .then(<span class="fstat-no" title="function not covered" >result </span>=&gt; {
+                            .then(<span class="fstat-no" title="function not covered" >(r</span>esult) =&gt; {
 <span class="cstat-no" title="statement not covered" >                                res.</span>status(201).json({
-                                    message: 'user registered'
+                                    message: 'user registered',
                                 });
                             })
-                            .catch(<span class="fstat-no" title="function not covered" >err </span>=&gt; {
+                            .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
 <span class="cstat-no" title="statement not covered" >                                res.</span>status(500).json({
-                                    error: err
+                                    error: err,
                                 });
                             });
-                    }
+                    
                 });
-            }
+            
         });
 });
 &nbsp;
 router.post('/login', (req, res, next) =&gt; {
     Signup.find({
-            email: req.body.email
+            email: req.body.email,
         })
-        .then(user =&gt; {
+        .then((user) =&gt; {
             if (user.length &lt; 1) {
                 return res.status(401).json({
-                    error: "Auth failed"
+                    error: "Auth failed",
                 });
             }
             bcrypt.compare(req.body.password, user[0].password, (err, result) =&gt; {
                 <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
 <span class="cstat-no" title="statement not covered" >                    return r</span>es.status(401).json({
-                        error: "Auth failed"
+                        error: "Auth failed",
                     });
                 }
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (result) {
                     const token = jwt.sign({
                             email: user[0].email,
-                            userId: user[0]._id
+                            userId: user[0]._id,
                         },
                         process.env.JWT_KEY, {
-                            expiresIn: "1h"
-                        }, );
+                            expiresIn: "7d",
+                        });
                     return res.status(200).json({
                         message: "user authorized",
-                        token: token
+                        token,
                     });
                 }
 <span class="cstat-no" title="statement not covered" >                res.</span>status(401).json({
-                    error: "Auth failed"
+                    error: "Auth failed",
                 });
             });
         })
-        .catch(<span class="fstat-no" title="function not covered" >err </span>=&gt; {
+        .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
 <span class="cstat-no" title="statement not covered" >            res.</span>status(500).json({
-                error: err
+                error: err,
             });
         });
 });
 &nbsp;
-module.exports = router;</pre></td></tr></table></pre>
+module.exports = router;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Dec 13 2020 17:32:57 GMT+0200 (Central Africa Time)
+                at Sun Jan 03 2021 18:10:42 GMT+0200 (Central Africa Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

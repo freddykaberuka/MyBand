@@ -1,4 +1,5 @@
 import Contact from '../model/contact';
+
 async function getContact(req, res, next) {
     let contac;
     try {

@@ -3,16 +3,16 @@ import mongoose, { Schema } from 'mongoose';
 const commentsSchema = new Schema({
     email: {
         type: String,
-        match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/,
-        required: true
+        match: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}/,
+        required: true,
     },
     commenty: {
         type: String,
-        required: true
+        required: true,
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
 
 });

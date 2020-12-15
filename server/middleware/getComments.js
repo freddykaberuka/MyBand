@@ -1,4 +1,5 @@
 import Comment from '../model/comment';
+
 async function getComment(req, res, next) {
     let commen;
     try {

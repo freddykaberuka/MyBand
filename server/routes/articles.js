@@ -1,5 +1,4 @@
 import express from 'express';
-const router = express.Router();
 import Article from '../model/article';
 import Comment from '../model/comment';
 import getArticle from '../middleware/getArticles';
@@ -7,36 +6,37 @@ import getComment from '../middleware/getComments';
 import checkAuth from '../middleware/check_Auth.js';
 import articleController from '../controller/articleController';
 import commentController from '../controller/commentController';
-const multer=require('multer');
 
-const storage=multer.diskStorage({
-    destination:function(req,file,cb){
-        cb(null,'./uploads/');
+const router = express.Router();
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination(req, file, cb) {
+        cb(null, './uploads/');
 
     },
-    filename:function(req,file,cb){
-        cb(null,file.originalname);
-    }
+    filename(req, file, cb) {
+        cb(null, file.originalname);
+    },
 });
-const fileFilter=(req,file,cb)=>{
-    if(file.mimetype==='image/jpg'||file.mimetype==='image/png'){
-        cb(null,true);
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
+        cb(null, true);
+    } else {
+        cb(null, false);
     }
-    else{
-        cb(null,false);
-    }
-}
-const upload=multer({storage:storage,fileFilter:fileFilter});
+};
+const upload = multer({ storage, fileFilter });
 
 router.get('/', articleController.findAll);
 router.get('/comments', commentController.findAll);
-router.post('/', upload.single('img'), checkAuth, async(req, res) => {
+router.post('/', upload.single('img'), checkAuth, async (req, res) => {
     console.log(req.file);
     const article = new Article({
         title: req.body.title,
         bodie: req.body.bodie,
         conclusion: req.body.conclusion,
-        img:req.file.path,
+        img: req.file.path,
     });
 
     try {
@@ -55,7 +55,7 @@ router.post('/', upload.single('img'), checkAuth, async(req, res) => {
     }
 });
 
-router.post('/comments', checkAuth, async(req, res) => {
+router.post('/comments', checkAuth, async (req, res) => {
     const comment = new Comment({
         email: req.body.email,
         commenty: req.body.commenty,
@@ -78,10 +78,12 @@ router.post('/comments', checkAuth, async(req, res) => {
 });
 
 router.get("/:articleid", getArticle, articleController.findOne);
-router.delete("/:articleid", checkAuth,getArticle, articleController.delete);
-router.delete("/comments/:commentid",checkAuth, getComment, commentController.delete);
-router.patch('/:articleid', getArticle,checkAuth,   async(req, res) => {
-    const { title, bodie, conclusion, img} = req.body;
+router.delete("/:articleid", checkAuth, getArticle, articleController.delete);
+router.delete("/comments/:commentid", checkAuth, getComment, commentController.delete);
+router.patch('/:articleid', getArticle, checkAuth, async (req, res) => {
+    const {
+ title, bodie, conclusion, img, 
+} = req.body;
     if (title != null) {
         res.art.title = title;
     }

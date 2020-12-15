@@ -1,4 +1,5 @@
 import Article from '../model/article';
+
 async function getArticle(req, res, next) {
     let art;
     try {
