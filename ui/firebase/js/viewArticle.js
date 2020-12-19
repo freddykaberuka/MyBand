@@ -46,6 +46,13 @@ function queries(doc) {
     li.appendChild(trash);
 	li.appendChild(update)
     messageList.appendChild(li);
+    //locate updating page
+    
+    update.addEventListener('click', (e) => {
+    e.stopPropagation();
+    var id = e.target.parentElement.getAttribute('data-id');
+    window.location.href = 'updateArticle.html#' + id
+});
 
  // deleting data
  trash.addEventListener('click', (e) => {
