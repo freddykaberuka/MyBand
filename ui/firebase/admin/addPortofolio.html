@@ -22,10 +22,10 @@
         <label class='heading'>FREDDY KABERUKA</label>
                       
         <ul>
-            <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li> 
-            <li><a href="addArticle.html"><i class="fas fa-blog"></i>ADD Blog</a></li>
-            <li><a href="viewArticle.html"class="active"><i class="fas fa-blog"></i>View Blog</a></li>
-            <li><a href="#"><i class="fas fa-briefcase"></i>Portofolio</a></li>
+            <li><a href="home.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="service.html"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li> 
+            <li><a href="addArticle.html"><i class="fas fa-blog"></i>Blog</a></li>
+            <li><a href="portofolio.html" class="active"><i class="fas fa-briefcase"></i>Portofolio</a></li>
             <li><a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Message</a></li>
             <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> logout</a></li>
         </ul>
@@ -34,30 +34,31 @@
             
             
     <main>
-              <div class="main">
-                <section id="article">
-                    <div class="container">
-                        
-                       <h2 style="color:white">Add New Article</h2>
-            <form id='articleForm' onsubmit="return false;">
+         <div class="main">
+<section id="article">
+    <div class="container">
+        
+       <h2 style="color:white">Add New Portofolio</h2>
+            <form id='portofolioForm' onsubmit="return false;">
+                
         <div><input type="text" name="title" class="input-type" placeholder="Your Title" required></div>
         <div><input type="file" id="img-header"/></div>
         <img src=""  id="view-image" />
         <div><textarea class="message" name="bodie" placeholder="Add Content" style="height:170px" required></textarea></div>
         <div><textarea class="message" name="conclusion" placeholder="Conclusion" style="height:170px" required></textarea></div>
-        <button class="button" onclick="return updateblog();">UPDATE</button>
+        <div><input type="submit" class="button" onclick="return saveportofolio();" value="Publish">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='viewportofolio.html'><input type="button" class="button" value="List Portofolios"></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" onclick="return cancelportofolio();" value="cancel"></div>
     </form>
     </div>
     </section>
-    </main>
-
-
-</div>
 </main>
 <div id='foot'style='background-color:black;bottom:0;'>
    
-    
-</div>
+        <footer>
+            <p>copyright&copy;KABERUKA 2020</p>
+        </footer>
+    </div>
           </body>
           <script>
             // Your web app's Firebase configuration
@@ -75,8 +76,12 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             const db=firebase.firestore();
+            // const auth=firebase.auth();
             //db.settings({timestampsInSnapshots: true});
           </script>
-      <script type="text/javascript" src="../js/updateA.js"></script>
-      </html>
+          <script type="text/javascript" src="../js/portofolio.js"></script>
+          </html>
+
+
+
 
