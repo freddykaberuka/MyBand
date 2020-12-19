@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <link rel='stylesheet' type='text/css' href='css/styles.css'>
+    <link rel='stylesheet' type='text/css' href='css/mainsingle.css'>
+    <link rel='stylesheet' type='text/css' href='../css/footer.css'>
+    <link rel='stylesheet' type='text/css' href='css/mainFirebase.css'>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Freddy | HomePage</title>
+    
+	<style>
+	#title{
+		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: #96d1f3;
+        font-size: xx-large;
+		padding-bottom:30px;
+		}
+	#message{
+		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        
+        font-size: x-large;
+		}
+	</style>
+  </head>
+
+  <body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+<i class="fas fa-bars"></i>
+
+        </label>
+        <label class='heading'>FREDDY KABERUKA</label>
+        
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> About me</a></li>
+          <li><a href="service.html"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li>
+          <li><a href="blog.html"><i class="fas fa-blog"></i>Blog</a></li>
+          <li><a href="userPortofolio.html" class="active"><i class="fas fa-briefcase"></i>Portofolio</a></li>
+          <li><a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Contact</a></li>
+          <li><a href="register.html"><i class="fas fa-user"></i> Account</a></li>
+      </ul>
+       
+    </nav>
+
+
+    <main>
+      <div class="main">
+        <section>
+            <div class='container'>
+            
+                    <form name="article" id="portofolioform">
+                      <div id='title'></div>
+					
+                    <div id='bodie'></div>
+                    <div id='conclusion'></div>
+                       
+                        
+                      </form>
+					  <left>
+					  <div id='comment'><h1>Comment here</h1>
+                <ul id='comment-list' style="list-style: none;"></ul>
+        <h2 style='text-align:left'>Leave a Reply</h2>
+        <form id='add-comment'>
+        <p><input type='text'name='name' placeholder='Names' style='width:40%;'></p>
+            <p><textarea name='comment' style='height:170px; width:600px' placeholder='New Comment.....'></textarea></p>
+                </article>
+                <input type="submit" class="button" onclick="return saveportofolio();" value="Post Comment">
+                            </form></left>
+            </div>
+			
+
+               </section>
+               </main>
+               <div id='foot'style='background-color:black;'>
+   
+                <footer>
+                    <p>copyright&copy;KABERUKA 2020</p>
+                </footer>
+            </div>
+                </body>
+         <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+              apiKey: "AIzaSyAWOqIIq8EyXgPUKuTpuchYAb9vOiYe_PM",
+              authDomain: "personal-web-3a06e.firebaseapp.com",
+              databaseURL: "https://personal-web-3a06e.firebaseio.com",
+              projectId: "personal-web-3a06e",
+              storageBucket: "personal-web-3a06e.appspot.com",
+              messagingSenderId: "874381349679",
+              appId: "1:874381349679:web:5fdd7f95d87526bcaa87da",
+              measurementId: "G-7CGQY88TGJ"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const db=firebase.firestore();
+            //db.settings({timestampsInSnapshots: true});
+
+            var id=window.location.hash.replace('#','');
+            const form = document.querySelector('#portofolioform');
+            db.collection('portofolios').doc(id).get().then(art=>{
+            
+            document.getElementById('title').innerHTML=art.data().title;
+            document.getElementById('bodie').innerHTML=art.data().bodie;
+            document.getElementById('conclusion').innerHTML=art.data().conclusion;
+  
+            });
+        </script>
+        <script type='javascript' src='js/comment.js></scrip>
+    </html> 

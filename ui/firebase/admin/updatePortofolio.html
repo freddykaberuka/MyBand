@@ -24,8 +24,8 @@
         <ul>
             <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li> 
             <li><a href="addArticle.html"><i class="fas fa-blog"></i>ADD Blog</a></li>
-            <li><a href="viewArticle.html"class="active"><i class="fas fa-blog"></i>View Blog</a></li>
-            <li><a href="#"><i class="fas fa-briefcase"></i>Portofolio</a></li>
+            <li><a href="viewArticle.html"><i class="fas fa-blog"></i>View Blog</a></li>
+            <li><a href="viewPortofolio.html" class="active"><i class="fas fa-briefcase"></i>Portofolio</a></li>
             <li><a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Message</a></li>
             <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> logout</a></li>
         </ul>
@@ -38,14 +38,14 @@
                 <section id="article">
                     <div class="container">
                         
-                       <h2 style="color:white">Add New Article</h2>
-            <form id='articleForm' onsubmit="return false;">
+                       <h2 style="color:white">Add New Portofolio</h2>
+            <form id='portofolioForm' onsubmit="return false;">
         <div><input type="text" name="title" class="input-type" placeholder="Your Title" required></div>
         <div><input type="file" id="img-header"/></div>
         <img src=""  id="view-image" />
         <div><textarea class="message" name="bodie" placeholder="Add Content" style="height:170px" required></textarea></div>
         <div><textarea class="message" name="conclusion" placeholder="Conclusion" style="height:170px" required></textarea></div>
-        <button class="button" onclick="return updateblog();">UPDATE</button>
+        <button class="button" onclick="return updateprot();">UPDATE</button>
     </form>
     </div>
     </section>
@@ -77,6 +77,6 @@
             const db=firebase.firestore();
             //db.settings({timestampsInSnapshots: true});
           </script>
-      <script type="text/javascript" src="../js/updateA.js"></script>
+      <script type="text/javascript" src="../js/updateP.js"></script>
       </html>
 
