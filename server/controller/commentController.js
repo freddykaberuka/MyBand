@@ -5,7 +5,7 @@ export default class commentController {
         try {
             const comments = await Comment.find();
             res.status(200).json({
-                message: "listing all data from database",
+                message: "listing all comment",
                 data: comments,
 
             });

@@ -4,11 +4,11 @@ const commentsSchema = new Schema({
     email: {
         type: String,
         match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/,
-        required: true
+        
     },
     comment: {
         type: String,
-        required: true
+        
     },
     date: {
         type: Date,
