@@ -119,6 +119,18 @@ h3{
 
 
 }
+#article ul li {
+    width: 100%;
+	margin-bottom:20px;
+	margin-left:20px;
+	height:60%;
+    padding: 6px;
+    display: relative;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+}
+
 .subscribe{
     background-color: #0C0C0D;
     text-align: center;
@@ -148,6 +160,14 @@ h3{
     padding: 12px 20px;
     border-radius: 8px;
     margin-bottom: 2%;
+}
+.singlecontainer{
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    background: rgba(0, 0, 0, .5);
+    float: center;
 }
 #footer{
     position:absolute;
@@ -188,6 +208,7 @@ footer {
         margin-top:26px;
         
     }
+    
     .service-content,.service-header{
         font-size: 30px;
     }

@@ -6,9 +6,9 @@ form.addEventListener('submit', (e) => {
         name: form.name.value,
         email: form.email.value,
         subject: form.subject.value,
-        message: form.message.value
+        message: form.message.value,
     });
-    alert('message sent')
+    alert('message sent');
     form.name.value = '';
     form.email.value = '';
     form.subject.value = '';

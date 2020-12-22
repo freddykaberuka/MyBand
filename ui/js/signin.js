@@ -2,7 +2,7 @@ function googleLogin(){
     var provider=new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
         function(){
-            window.location="admin/index.html";
+            window.location="admin/addArticle.html";
             console.log('successful login');
         }
     ).catch(function(error){
@@ -13,18 +13,11 @@ function googleLogin(){
 function loginUser() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-   
+
     firebase.auth().signInWithEmailAndPassword(email, password).then(
             function() {
-                if(email==='fred@mail.com'&&password==='password1'){
-                    window.location = "admin/index.html";
-                    console.log('welcome admin');
-
-                }
-                else{
-                    window.location = "userBlogs.html";
-                }
-                
+                window.location = "admin/addArticle.html";
+                console.log('you are in now');
                 
 
             }).catch(function(error) {
@@ -33,13 +26,7 @@ function loginUser() {
         });
 
     } 
-    
-    // auth.onAuthStateChanged((user) => {
-    //     if (!user) {
-    //       console.log("signed out");
-    //       location = "signin.html";
-    //     }
-    //   });
+
 const logout=document.querySelector('#logOut');
 logout.addEventListener('click',(e)=>{
     e.preventDefault();
