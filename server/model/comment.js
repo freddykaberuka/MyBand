@@ -6,7 +6,7 @@ const commentsSchema = new Schema({
         match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/,
         required: true
     },
-    commenty: {
+    comment: {
         type: String,
         required: true
     },

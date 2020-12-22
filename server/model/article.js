@@ -3,19 +3,19 @@ import mongoose, { Schema } from 'mongoose';
 const articlesSchema = new Schema({
     title: {
         type: String,
-        required: true
+        // required: true
     },
-    bodie: {
+    body: {
         type: String,
-        required: true
+        // required: true
     },
     conclusion: {
         type: String,
-        required: true
+        // required: true
     },
     img:{
         type:String,
-        required:true
+        // required:true
     },
     date: {
         type: Date,

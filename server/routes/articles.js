@@ -29,12 +29,12 @@ const fileFilter=(req,file,cb)=>{
 const upload=multer({storage:storage,fileFilter:fileFilter});
 
 router.get('/', articleController.findAll);
-router.get('/comments', commentController.findAll);
+router.get('/:articleid/comments', commentController.findAll);
 router.post('/', upload.single('img'), checkAuth, async(req, res) => {
     console.log(req.file);
     const article = new Article({
         title: req.body.title,
-        bodie: req.body.bodie,
+        body: req.body.body,
         conclusion: req.body.conclusion,
         img:req.file.path,
     });
@@ -55,10 +55,10 @@ router.post('/', upload.single('img'), checkAuth, async(req, res) => {
     }
 });
 
-router.post('/comments', checkAuth, async(req, res) => {
+router.post('/:articleid/comments', checkAuth, async(req, res) => {
     const comment = new Comment({
         email: req.body.email,
-        commenty: req.body.commenty,
+        comment: req.body.comment,
     });
 
     try {
@@ -79,14 +79,14 @@ router.post('/comments', checkAuth, async(req, res) => {
 
 router.get("/:articleid", getArticle, articleController.findOne);
 router.delete("/:articleid", checkAuth,getArticle, articleController.delete);
-router.delete("/comments/:commentid",checkAuth, getComment, commentController.delete);
+router.delete("/:articleid/comments/:commentid",checkAuth, getComment, commentController.delete);
 router.patch('/:articleid', getArticle,checkAuth,   async(req, res) => {
-    const { title, bodie, conclusion, img} = req.body;
+    const { title, body, conclusion, img} = req.body;
     if (title != null) {
         res.art.title = title;
     }
-    if (bodie != null) {
-        res.art.bodie = bodie;
+    if (body != null) {
+        res.art.body = body;
     }
     if (conclusion != null) {
         res.art.conclusion = conclusion;
