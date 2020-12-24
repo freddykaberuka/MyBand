@@ -164,6 +164,15 @@ img{
     border: none;
     
 }
+.p-button{
+    inp:button;
+    background:rgb(44, 95, 235);
+    color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    cursor: pointer;
+    border: none;
+}
 .upd_button {
     background: #02a726;
     color: white;

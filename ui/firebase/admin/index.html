@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <!--firebase script-->
+      <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' type='text/css' href='../../css/main.css'>
+   
+     <link rel='stylesheet' type='text/css' href='../css/mainFirebase.css'>
+     
+     <link rel='stylesheet' type='text/css' href='../css/footer.css'>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <title>Freddy | Contact</title>
+  </head>
+
+  <body>
+      <nav>
+          <input type="checkbox" id="check">
+          <label for="check" class="checkbtn">
+<i class="fas fa-bars"></i>
+
+          </label>
+          <label class='heading'>F<sup>K</sup><i><sub>7</sub></i></label>
+          
+          <ul>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> About me</a></li>
+            <li><a href="service.html"><i class="fa fa-wrench" aria-hidden="true"></i>My service</a></li>
+            <li><a href="userBlogs.html"><i class="fas fa-blog"></i>Blog</a></li>
+            <li><a href="userPortofolio.html"><i class="fas fa-briefcase"></i>Portofolio</a></li>
+            <li><a href="contact.html" class="active"><i class="fa fa-fw fa-envelope"></i>Contact</a></li>
+            <li><a href="signup.html"><i class="fas fa-user"></i> Account</a></li>
+            </ul>
+          
+      </nav>
+      <main>
+        <section id="profile">
+            <div class="container">
+              <section>
+        
+                <div class='container'>
+                    
+        
+                <form id="experienceform"></form>
+        
+               <center> <ul id="message-list" style="list-style-type: none;"></ul></center>
+        
+            </div>
+            </section>
+                <h2>fill your experience</h2>
+                
+                    <form name="profile" id="experienceform">
+                <div style="text-align:center;"><textarea class="message" placeholder="New Message" style="height:170px" id="experience" required></textarea></div>
+                <div style="text-align:center;"><input type="submit" class="button" value="ADD experience" ></div>
+                </form>
+            </div>
+            <br><br>
+        </section>
+        </main>
+        <div id='foot'style='background-color:black;bottom:0;'>
+   
+            <footer>
+                <p>copyright&copy;KABERUKA 2020</p>
+            </footer>
+        </div>
+              </body>
+              
+                          <script>
+                            // Your web app's Firebase configuration
+                            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                            var firebaseConfig = {
+                              apiKey: "AIzaSyAWOqIIq8EyXgPUKuTpuchYAb9vOiYe_PM",
+                              authDomain: "personal-web-3a06e.firebaseapp.com",
+                              databaseURL: "https://personal-web-3a06e.firebaseio.com",
+                              projectId: "personal-web-3a06e",
+                              storageBucket: "personal-web-3a06e.appspot.com",
+                              messagingSenderId: "874381349679",
+                              appId: "1:874381349679:web:5fdd7f95d87526bcaa87da",
+                              measurementId: "G-7CGQY88TGJ"
+                            };
+                            // Initialize Firebase
+                            firebase.initializeApp(firebaseConfig);
+                            const db=firebase.firestore();
+                            const auth=firebase.auth();
+                            //db.settings({timestampsInSnapshots: true});
+                          </script>
+                          
+                          <script type="text/javascript" src="../js/profileview.js"></script>
+                          <script type="text/javascript" src="../js/signin.js"></script> 
+                          <script type="text/javascript" src="../js/Auth.js"></script> 
+                          </html>

@@ -10,7 +10,7 @@
             document.forms['articleForm']['conclusion'].value=doc.data().conclusion;
 			feature_img.src=doc.data().view_img;
 			
-		}).catch(err=>{ 
+		}).catch(err=>{
 			
 			alert(err);
 		});

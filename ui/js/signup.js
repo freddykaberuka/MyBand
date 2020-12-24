@@ -12,9 +12,8 @@ function createUser() {
     if (password == confirmPassword) {
         firebase.auth().createUserWithEmailAndPassword(email, password).then(
             function() {
-                
-                alert('thank you for register');
-                window.location = "signup.html";
+                //window.location = "index.html";
+                alert('new user registered');
 
             }).catch(function(error) {
             //this function handles errors
