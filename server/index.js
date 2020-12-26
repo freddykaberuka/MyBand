@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import signupRoute from './routes/signup';
 import contacts from './routes/contacts';
 import articles from './routes/articles';
+import swaggerui from 'swagger-ui-express';
+import swaggerdocument from './documentation/swagger';
 const app=express();
 const port=process.env.port||3000;
 dotenv.config();
@@ -19,6 +21,8 @@ mongoose
      app.use("/api/v1/contacts", contacts);
      app.use("/api/v1/articles", articles);
      app.use("/uploads",express.static("uploads"));
+     
+     app.use('/api-documentation',swaggerui.serve,swaggerui.setup(swaggerdocument));
      
      app.use('/*', (_req, res) => {
         res.status(404).send({error: 'Not Found' });
