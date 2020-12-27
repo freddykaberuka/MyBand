@@ -1,6 +1,6 @@
-# MyBand
-Capstone project
+
 # MY BRAND(Personal Website + Blog)
+https://img.shields.io/travis/com/freddykaberuka/MyBand
 
 This is personal website + Blog that gives prospective customers, employer easy to review my work, experience, and future ambition.
 # screenshot
