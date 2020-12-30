@@ -7,6 +7,6 @@ firebase.auth().onAuthStateChanged((user) => {
         }
     } else {
         alert("Unauthorized");
-        window.location.href = "signin.html";
+        window.location.href = "../signin.html";
         }
      });

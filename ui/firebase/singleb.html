@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
-    <link rel='stylesheet' type='text/css' href='../css/main.css'>
+    <link rel='stylesheet' type='text/css' href='css/index.css'>
     
     <!-- <link rel='stylesheet' type='text/css' href='firebase/css/mainsingle.css'> -->
     <link rel='stylesheet' type='text/css' href='../css/footer.css'>
@@ -54,7 +54,7 @@
         <section>
             <div class='singlecontainer'>
             
-                    <form name="article" id="articleform">
+                    <div name="article" id="articleform">
                       <div id='title'></div>
 					
                     <div id='bodie'></div>
@@ -66,12 +66,25 @@
 					  <div id='comment'><h1>Comment here</h1>
                 <ul id='comment-list' style="list-style: none;"></ul>
         <h2 style='text-align:left'>Leave a Reply</h2>
-        <form id='add-comment'>
-        <p><input type='text'name='name' class='input-type' placeholder='Names' style='width:62%;'></p>
-            <p><textarea name='comment' class='message' style='height:170px; width:600px' placeholder='New Comment.....'></textarea></p>
+        <form id='commentForm' onsubmit="return true;">
+        <p><input type='text' name='names' class='input-type' id='names' placeholder='Names' style='width:62%;'></p>
+            <p><textarea name='coment' class='message' style='height:170px; width:600px' id='coment' placeholder='New Comment.....'></textarea></p>
                 </article>
-                <input type="submit" class="button" onclick="return savearticle();" value="Post Comment">
-                            </form></left>
+                <script>
+          auth().onAuthStateChanged((user) => {
+            if (user) {
+
+                </script>
+                <input type="submit" class="button" value="Post Comment">
+                            </form>
+                            <script>
+                            }else{
+              alert('you have to signin first');
+              location='googlesignin.html';
+            }
+          });
+                              </script>
+                            </left>
             </div>
 			
 
@@ -111,7 +124,7 @@
             //db.settings({timestampsInSnapshots: true});
 
             var id=window.location.hash.replace('#','');
-            const form = document.querySelector('#articleform');
+            const viewing = document.querySelector('#articleform');
             db.collection('articles').doc(id).get().then(art=>{
             
             document.getElementById('title').innerHTML=art.data().title;
@@ -119,6 +132,56 @@
             document.getElementById('conclusion').innerHTML=art.data().conclusion;
   
             });
+            const form = document.querySelector('#commentForm');
+              form.addEventListener('submit', (e) => {
+              e.preventDefault();
+              db.collection('comments').add({
+              names: form.names.value,
+              coment: form.coment.value,
+            });
+              alert('comment added');
+              form.names.value = '';
+              form.coment.value = '';
+            
+            });
+            
+      
+          
+          //comment
+          const messageList = document.querySelector('#comment-list');
+function queries(doc) {
+    let li = document.createElement('li');
+    li.style.float=' center';
+    li.style.width= '60%';
+    li.style.height='auto';
+    li.style.padding='8px';
+    // li.style.color='white';
+  
+    var names = document.createElement('p');
+    names.style.fontsize=100;
+    names.style.color = 'white';
+
+    var coment = document.createElement('p');
+    coment.style.fontsize=100;
+    coment.style.color = 'white-dark';
+    
+
+    li.setAttribute('data-id', doc.id);
+    names.textContent = doc.data().names;
+    coment.textContent = doc.data().coment;
+
+
+    li.appendChild(names);
+    li.appendChild(coment);
+    messageList.appendChild(li);
+}
+    // getting data
+    db.collection('comments').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            queries(doc);
+        });
+    });
         </script>
-        <script type='javascript' src='js/comment.js></scrip>
+        <script type='javascript' src='js/comment.js> </scrip>
+        
     </html> 

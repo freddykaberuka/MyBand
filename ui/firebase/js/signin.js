@@ -2,7 +2,7 @@ function googleLogin(){
     var provider=new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
         function(){
-            window.location="admin/index.html";
+            window.location="userBlogs.html";
             console.log('successful login');
         }
     ).catch(function(error){
