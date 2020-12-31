@@ -1,3 +1,16 @@
+.article{
+    
+}
+.liste{
+    margin-left: 6%;
+    width: 40%;
+    padding: 6px;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: left;
+    margin-left: 2%;
+}
 #article ul li {
     width: 140%;
 	margin-bottom:20px;
@@ -9,15 +22,50 @@
     max-width: 300px;
     text-align: center;
 }
+ul.article {
+	list-style: none;
+	font-size: 0px;
+}
+ul.article li {
+	display: inline-block;
+	padding: 10px;
+	background: #fff;
+	/* border: 1px solid #ddd; */
+	font-size: 16px;
+	font-size: 1rem;
+	vertical-align: top;
+	box-shadow: 0 0 5px #ddd;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.title{
+    text-align:center;
+}
+.body{
+    text-align:center;
+}
+.readme{
+    text-align:center;
+}
+/* #footer{
+    position: absolute;;
+    bottom:0;
+    width:100%;
+    /* background: #0C0C0D; */
+/* } */ 
 /*  */
-@media (min-width:375px){
-    .artIcle{
-        /* padding-left:1000px; */
-        box-shadow: 4px 4px 8px 4px rgba(0.5, 0.5, 0.5, 1);
-        display:grid;
-        /* min-width:90%; */
-        /* margin-bottom:16px; */
-        /* margin-top:26px; */
-        
+
+    @media (max-width: 375px) {
+        /* #footer{
+            position: relative;
+        } */
+        .liste{
+            margin-left:20px;
+            box-shadow: 2px 2px 2px 2px rgba(0.5, 0.5, 0.5, 1);
+            display:grid;
+            min-width:90%;
+            margin-bottom:16px;
+            margin-top:26px;
         }
     }
