@@ -5,13 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: 
-      - develop
-      - ch-heroku-demo
+    branches: [develop]
   pull_request:
-    branches: 
-      - develop
-      - ch-heroku-demo
+    branches: [develop]
 
 jobs:
   build:
@@ -30,4 +26,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
+    - run: npm start
     - run: npm test
