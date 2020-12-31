@@ -2,12 +2,14 @@ const messageList = document.querySelector('.article');
 // create element that match with html design
 function queries(doc) {
     var li = document.createElement('li');
+    li.className='artIcle',
     li.style.background = 'rgba(0, 0, 0, .5)';
     li.style.float=' left';
 	li.style.width= '40%';
-	li.style.padding='6px';
+    li.style.padding='6px';
+    
     var update = document.createElement('span');
-    update.className='upd_button',
+    update.className='upd_button', 
 	update.style.float='right';
     update.style.top = '0';
     update.style.right = '0';

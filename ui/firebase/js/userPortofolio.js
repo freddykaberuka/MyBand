@@ -5,7 +5,8 @@ function queries(doc) {
     li.style.background = 'rgba(0, 0, 0, .5)';
     li.style.float=' left';
 	li.style.width= '40%';
-	li.style.padding='6px';
+    li.style.padding='6px';
+    li.className='articl';
 
     
     let img=document.createElement('img');

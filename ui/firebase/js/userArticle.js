@@ -42,7 +42,7 @@ function queries(doc) {
     li.appendChild(readme);
     messageList.appendChild(li);
 
- //locate updating page
+ //locate single page
     readme.addEventListener('click', (e) => {
         e.stopPropagation();
         var id = e.target.parentElement.getAttribute('data-id');
