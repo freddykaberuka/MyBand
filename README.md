@@ -1,6 +1,8 @@
 
 # MY BRAND(Personal Website + Blog)
-![Travis (.com)](https://img.shields.io/travis/com/freddykaberuka/MyBand)
+[![Build Status](https://travis-ci.com/freddykaberuka/MyBand.svg?branch=develop)](https://travis-ci.com/freddykaberuka/MyBand)
+
+[![Coverage Status](https://coveralls.io/repos/github/freddykaberuka/MyBand/badge.svg?branch=ch-travis)](https://coveralls.io/github/freddykaberuka/MyBand?branch=ch-travis)
 
 This is personal website + Blog that gives prospective customers, employer easy to review my work, experience, and future ambition.
 # screenshot
