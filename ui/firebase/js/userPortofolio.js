@@ -1,12 +1,12 @@
 const messageList = document.querySelector('.article');
 // create element that match with html design
 function queries(doc) {
-    var li = document.createElement('li');
+    var li = document.createElement('div');
+    li.className='liste',
     li.style.background = 'rgba(0, 0, 0, .5)';
     li.style.float=' left';
 	li.style.width= '40%';
     li.style.padding='6px';
-    li.className='articl';
 
     
     let img=document.createElement('img');

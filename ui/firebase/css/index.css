@@ -161,6 +161,11 @@ h3{
     border-radius: 8px;
     margin-bottom: 2%;
 }
+.messcoment{
+    width: 62%;
+    border-radius: 8px;
+    
+}
 .singlecontainer{
     max-width: 1000px;
     margin-left: auto;
@@ -192,6 +197,7 @@ footer {
         font-size:30px;
         padding-left:50px;
     }
+    
     nav ul li a{
         font-size:16px;
     }
@@ -264,6 +270,9 @@ footer {
     }
     .service-content{
         font-size:70%;
+    }
+    .message{
+        width:10%;
     }
 }
 

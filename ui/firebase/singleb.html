@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
     <link rel='stylesheet' type='text/css' href='css/index.css'>
     
     <!-- <link rel='stylesheet' type='text/css' href='firebase/css/mainsingle.css'> -->
@@ -64,26 +65,17 @@
                       </form>
 					  <left>
 					  <div id='comment'><h1>Comment here</h1>
-                <ul id='comment-list' style="list-style: none;"></ul>
+                <div id='comment-list' style="list-style: none;"></div>
+                <div>
         <h2 style='text-align:left'>Leave a Reply</h2>
         <form id='commentForm' onsubmit="return true;">
-        <p><input type='text' name='names' class='input-type' id='names' placeholder='Names' style='width:62%;'></p>
-            <p><textarea name='coment' class='message' style='height:170px; width:600px' id='coment' placeholder='New Comment.....'></textarea></p>
+        <div><input type='text' name='names' class='input-type' id='names' placeholder='Names' style='width:62%;'></div>
+            <div><textarea name='coment' class='messcoment' style='height:150px;' id='coment' placeholder='New Comment.....'></textarea></div>
                 </article>
-                <script>
-          auth().onAuthStateChanged((user) => {
-            if (user) {
-
-                </script>
-                <input type="submit" class="button" value="Post Comment">
+                
+                <input type="submit" class="button" id="commment" value="Post Comment">
                             </form>
-                            <script>
-                            }else{
-              alert('you have to signin first');
-              location='googlesignin.html';
-            }
-          });
-                              </script>
+                            </div>
                             </left>
             </div>
 			
@@ -121,6 +113,7 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             const db=firebase.firestore();
+            const auth=firebase.auth();
             //db.settings({timestampsInSnapshots: true});
 
             var id=window.location.hash.replace('#','');
@@ -133,24 +126,39 @@
   
             });
             const form = document.querySelector('#commentForm');
-              form.addEventListener('submit', (e) => {
-              e.preventDefault();
-              db.collection('comments').add({
-              names: form.names.value,
-              coment: form.coment.value,
-            });
-              alert('comment added');
-              form.names.value = '';
-              form.coment.value = '';
-            
-            });
+                form.addEventListener('submit', (e) => {
+                  e.preventDefault();
+                  if (names !=='' && coment!=='') {
+                    firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                      db.collection('comments').add({
+                        names: form.names.value,
+                        coment: form.coment.value,
+                      });
+                      alert('comment added');
+                      form.names.value = '';
+                      form.coment.value = '';
+                    
+                    }else{
+                      alert('please login first');
+                      location.reload();
+                  }
+                });
+              }else{
+                    alert('fill form to submit');
+                  }
+                });
+                
+          
+          
             
       
           
           //comment
           const messageList = document.querySelector('#comment-list');
 function queries(doc) {
-    let li = document.createElement('li');
+    let li = document.createElement('div');
+    li.className='comments-liste',
     li.style.float=' center';
     li.style.width= '60%';
     li.style.height='auto';
